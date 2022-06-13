@@ -37,7 +37,7 @@ public class Main extends Application {
         HandleLaptop lap  = new HandleLaptop();
 
         lap.getLaps();
-        lap.updateStudents("aces","anh2","aces", 22222, 1);
+        lap.updateLaptop("aces","anh2","aces", 22222, 1);
 
 //        lap.createLaps("dell2221", "adasasdasd", "dell", 21111);
 
