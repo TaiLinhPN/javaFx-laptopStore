@@ -23,7 +23,7 @@ public class  HandleLaptop {
         }
     }
 
-    List<Laptop> laptops(){
+    List<Laptop> getLaps(){
         ArrayList<Laptop> laptop = new ArrayList<>();
         try {
             ResultSet resul = connection.prepareStatement("SELECT * FROM `laptops`").executeQuery();
@@ -32,20 +32,34 @@ public class  HandleLaptop {
                 String name = resul.getString("name");
                 String img = resul.getString("img");
                 String compary = resul.getString("company");
-                Float price = resul.getFloat("price");
+                float price = resul.getFloat("price");
                 System.out.println(id);
                 System.out.println(name);
 
                 laptop.add(new Laptop(id , price,name,img,compary));
             }
-
-
         }catch (SQLException e){
             throw new RuntimeException(e);
         }
         return laptop;
 
+    }
 
+
+    
+    void createLaps(String name,String img , String company,  float price){
+        String sql = "INSERT INTO `laptops`(`name`, `img`, `price`,`company`) VALUES ('"+ name+"','"+ img+"',"+ price+",'" + company+"')";
+        try {
+            System.out.println(sql);
+            connection.prepareStatement(sql).executeUpdate();
+            getLaps();
+
+
+        }catch (SQLException e){
+            throw new RuntimeException(e);
+        }
 
     }
+
+    
 }

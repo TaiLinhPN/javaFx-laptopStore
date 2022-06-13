@@ -36,7 +36,9 @@ public class Main extends Application {
 
         HandleLaptop lap  = new HandleLaptop();
 
-        lap.laptops();
+        lap.getLaps();
+
+//        lap.createLaps("dell2221", "adasasdasd", "dell", 21111);
 
 
 //
