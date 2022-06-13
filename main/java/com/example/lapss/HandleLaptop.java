@@ -71,5 +71,19 @@ public class  HandleLaptop {
 
     }
 
+    void updateLaptop(String name, String img,String company,float price, int id){
+        String sql = "UPDATE `laptops` SET `name`='"+ name+"',`img`='"+ img+ "',`company`='"+ company+ "',`price`="+ price+ " WHERE id ="+ id;
+        try {
+            System.out.println(sql);
+            connection.prepareStatement(sql).executeUpdate();
+            getLaps();
+
+
+        }catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+
+    }
+
     
 }
