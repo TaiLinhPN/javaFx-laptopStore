@@ -61,5 +61,15 @@ public class  HandleLaptop {
 
     }
 
+      void deleteLap(int id){
+        try {
+             connection.prepareStatement("DELETE  FROM `laptops` WHERE id = "+id).executeUpdate();
+            getLaps();
+        }catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+
+    }
+
     
 }
