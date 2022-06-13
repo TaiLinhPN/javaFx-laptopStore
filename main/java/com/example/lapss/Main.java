@@ -6,6 +6,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.util.List;
 
 import javafx.application.Application;
 import javafx.geometry.Insets;
@@ -16,6 +18,8 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
+//import jdk.internal.icu.impl.CharacterIteratorWrapper;
+import java.sql.SQLException;
 
 public class Main extends Application {
     @Override
@@ -29,29 +33,39 @@ public class Main extends Application {
 //
 //    }
     public void start(Stage primaryStage) throws Exception {
-        FlowPane root = new FlowPane();
 
-        root.setPadding(new Insets(15,15,15,15));
+        HandleLaptop lap  = new HandleLaptop();
 
-        // Button 1
-        Button button1= new Button("Button1");
-        root.getChildren().add(button1);
+        lap.laptops();
 
 
-        // Button 2
-        Button button2 = new Button("Button2");
-        button2.setPrefSize(100, 100);
-        root.getChildren().add(button2);
-
-
-
-
-        Scene scene = new Scene(root, 550, 250);
-
-        primaryStage.setTitle("FlowPane Layout Demo");
-        primaryStage.setScene(scene);
-        primaryStage.show();
+//
+//        FlowPane root = new FlowPane();
+//
+//        root.setPadding(new Insets(15,15,15,15));
+//
+//        // Button 1
+//        Button button1= new Button("Button1");
+//        root.getChildren().add(button1);
+//
+//
+//        // Button 2
+//        Button button2 = new Button("Button2");
+//        button2.setPrefSize(100, 100);
+//        root.getChildren().add(button2);
+//
+//
+//
+//
+//        Scene scene = new Scene(root, 550, 250);
+//
+//        primaryStage.setTitle("FlowPane Layout Demo");
+//        primaryStage.setScene(scene);
+//        primaryStage.show();
     }
+
+    void aaaa(){
+      }
 
 
     public static void main(String[] args) {
