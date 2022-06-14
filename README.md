@@ -2,4 +2,11 @@
 
 lala
 
-![Bản Viên-Offer](https://user-images.githubusercontent.com/88220193/173468276-4e2e0ee8-556f-442b-9738-7ec457d1137d.png)
+cấu trúc file
+
+![image](https://user-images.githubusercontent.com/88220193/173468539-1f70c3b7-7607-4cdd-b539-7acddff449e7.png)
+
+cấu trúc bản database
+
+![image](https://user-images.githubusercontent.com/88220193/173469395-c26c82bf-ed2e-4a9a-8a5b-648398936c51.png)
+
