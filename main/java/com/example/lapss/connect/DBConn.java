@@ -1,19 +1,21 @@
-package com.example.lapss;
+package com.example.lapss.connect;
+
+//import com.almasb.fxgl.net.Connection;
+import com.example.lapss.objects.Company;
+import com.example.lapss.objects.Laptop;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 
-import java.sql.DriverManager;
-
-
-public class  HandleLaptop {
+public class DBConn {
     public Connection connection;
 
-    public  HandleLaptop(){
+    public  DBConn(){
         try {
             connection = DriverManager.getConnection("jdbc:mysql://localhost/lapdatabase","root","");
             System.out.println("conneted");
@@ -23,7 +25,7 @@ public class  HandleLaptop {
         }
     }
 
-    List<Laptop> getLaps(){
+    public List<Laptop> getLaps(){
         ArrayList<Laptop> laptop = new ArrayList<>();
         try {
             ResultSet resul = connection.prepareStatement("SELECT * FROM `laptops`").executeQuery();
@@ -31,12 +33,12 @@ public class  HandleLaptop {
                 int id = resul.getInt("id");
                 String name = resul.getString("name");
                 String img = resul.getString("img");
-                String compary = resul.getString("company");
+                String company = resul.getString("company");
                 float price = resul.getFloat("price");
                 System.out.println(id);
                 System.out.println(name);
 
-                laptop.add(new Laptop(id , price,name,img,compary));
+                laptop.add(new Laptop(id , price,name,img,company));
             }
         }catch (SQLException e){
             throw new RuntimeException(e);
@@ -45,15 +47,31 @@ public class  HandleLaptop {
 
     }
 
-
-    
-    void createLaps(String name,String img , String company,  float price){
-        String sql = "INSERT INTO `laptops`(`name`, `img`, `price`,`company`) VALUES ('"+ name+"','"+ img+"',"+ price+",'" + company+"')";
+    public List<Company> getCompanys(){
+        ArrayList<Company> company = new ArrayList<>();
         try {
-            System.out.println(sql);
+            ResultSet resul = connection.prepareStatement("SELECT * FROM `companys`").executeQuery();
+            while (resul.next()){
+                int id = resul.getInt("id");
+                String name = resul.getString("name");
+
+                System.out.println(id);
+                System.out.println(name);
+
+                company.add(new Company(id ,name));
+            }
+        }catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+        return company;
+
+    }
+
+
+    public void querryDB(String sql){
+        try {
+            System .out.println(sql);
             connection.prepareStatement(sql).executeUpdate();
-            getLaps();
-
 
         }catch (SQLException e){
             throw new RuntimeException(e);
@@ -61,29 +79,8 @@ public class  HandleLaptop {
 
     }
 
-      void deleteLap(int id){
-        try {
-             connection.prepareStatement("DELETE  FROM `laptops` WHERE id = "+id).executeUpdate();
-            getLaps();
-        }catch (SQLException e){
-            throw new RuntimeException(e);
-        }
-
-    }
-
-    void updateLaptop(String name, String img,String company,float price, int id){
-        String sql = "UPDATE `laptops` SET `name`='"+ name+"',`img`='"+ img+ "',`company`='"+ company+ "',`price`="+ price+ " WHERE id ="+ id;
-        try {
-            System.out.println(sql);
-            connection.prepareStatement(sql).executeUpdate();
-            getLaps();
 
 
-        }catch (SQLException e){
-            throw new RuntimeException(e);
-        }
 
-    }
-
-    
 }
+

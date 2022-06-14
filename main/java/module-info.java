@@ -13,4 +13,8 @@ module com.example.lapss {
 
     opens com.example.lapss to javafx.fxml;
     exports com.example.lapss;
+    exports com.example.lapss.connect;
+    opens com.example.lapss.connect to javafx.fxml;
+    exports com.example.lapss.objects;
+    opens com.example.lapss.objects to javafx.fxml;
 }

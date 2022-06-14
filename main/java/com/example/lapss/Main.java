@@ -1,25 +1,12 @@
 package com.example.lapss;
 
+import com.example.lapss.connect.DBConn;
+import com.example.lapss.connect.HandleLaptop;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-import java.sql.ResultSet;
-import java.util.List;
-
-import javafx.application.Application;
-import javafx.geometry.Insets;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.FlowPane;
-import javafx.stage.Stage;
 //import jdk.internal.icu.impl.CharacterIteratorWrapper;
-import java.sql.SQLException;
+
 
 public class Main extends Application {
     @Override
@@ -34,6 +21,10 @@ public class Main extends Application {
 //    }
     public void start(Stage primaryStage) throws Exception {
 
+        DBConn conn = new DBConn();
+        conn.getCompanys();
+//        conn.querryDB("DELETE  FROM `companys` WHERE id = "+2);
+
         HandleLaptop lap  = new HandleLaptop();
 
         lap.getLaps();
@@ -42,10 +33,8 @@ public class Main extends Application {
 //        lap.createLaps("dell2221", "adasasdasd", "dell", 21111);
 
 
-//
-//        FlowPane root = new FlowPane();
-//
-//        root.setPadding(new Insets(15,15,15,15));
+//       FlowPane root = new FlowPane();
+//       root.setPadding(new Insets(15,15,15,15));
 //
 //        // Button 1
 //        Button button1= new Button("Button1");
@@ -60,11 +49,11 @@ public class Main extends Application {
 //
 //
 //
-//        Scene scene = new Scene(root, 550, 250);
+//       Scene scene = new Scene(root, 550, 250);
 //
-//        primaryStage.setTitle("FlowPane Layout Demo");
-//        primaryStage.setScene(scene);
-//        primaryStage.show();
+//       primaryStage.setTitle("Laptop Store");
+//       primaryStage.setScene(scene);
+//       primaryStage.show();
     }
 
     void aaaa(){
