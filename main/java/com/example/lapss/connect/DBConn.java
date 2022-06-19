@@ -43,6 +43,7 @@ public class DBConn {
         }catch (SQLException e){
             throw new RuntimeException(e);
         }
+
         return laptop;
 
     }
@@ -76,6 +77,7 @@ public class DBConn {
         }catch (SQLException e){
             throw new RuntimeException(e);
         }
+
 
     }
 
